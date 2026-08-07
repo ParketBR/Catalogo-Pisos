@@ -13,23 +13,21 @@
           desc: 'A base do luxo. Texturas orgânicas e padrões exclusivos que definem o caráter do seu espaço.',
           cover: 'pisos/piso.webp',
           videos: [
-            { type: 'youtube', id: '9HUVFWeCxsQ', vertical: true, title: 'Carvalho Europeu em espinha de peixe · Projeto Loja Carol Bassi' },
-            { type: 'youtube', id: '6AU-gNo13zc', vertical: true, title: 'Paginação Chevron em Carvalho Europeu Natural' },
-            { type: 'youtube', id: 'aWqu-yIJ1H4', vertical: true, title: 'Residência em piso Chevron Carvalho Europeu tom escuro' },
-            { type: 'youtube', id: 'EBua9XEj78g', vertical: true, title: 'Cliente Parket voltou para uma nova obra' },
+            { type: 'youtube', id: 'fHEBXGLVck4', vertical: true, title: 'A presença absoluta do material' },
             { type: 'youtube', id: 'i4gXTyMsTZo', vertical: true, title: 'Coleção Brazil: o espectro tonal da madeira brasileira' },
-            { type: 'youtube', id: 'j6ptdgucfRs', vertical: true, poster: 'pisos/brazil/01.webp', title: 'Brazil' },
-            { type: 'youtube', id: 'RtGx42_LvDk', vertical: true, title: 'Carvalho Europeu em chevron, mármore Mont Blanc e latão num mesmo plano' },
-            { type: 'youtube', id: '9W65gsFseU4', vertical: true, title: 'Régua de 11 metros de comprimento, fabricada pela Parket. Sem emenda' }
-          ],
+            { type: 'youtube', id: 'j6ptdgucfRs', vertical: true, title: 'Brazil' },
+           ],
           collections: [
             {
               key: 'brazil', title: 'Brazil',
               desc: 'A autenticidade das madeiras brasileiras traduzida em réguas de beleza única. Uma coleção que exalta a alma tropical com cores profundas e fibras marcantes.',
               localFolder: 'pisos/brazil',
-              names: { 1: 'Sucupira', 2: 'Canela', 3: 'Peroba Mica', 4: 'Peroba Mica', 5: 'Cumaru', 6: 'Cumaru', 7: 'Tauari Naturalle', 8: 'Cumaru', 9: 'Chevron de Tauari', 10: 'Cumaru', 11: 'Sucupira Rústica' },
+              names: { 1: 'Canela', 2: 'Peroba Mica', 3: 'Peroba Mica', 4: 'Cumaru', 5: 'Cumaru', 6: 'Tauari Naturalle', 7: 'Cumaru', 8: 'Chevron de Tauari', 9: 'Cumaru', 10: 'Sucupira Rústica' },
+              // Foto 9 (Chevron de Tauari) é retrato: em vez do corte "cover"
+              // (que dá zoom forte), exibe a foto inteira, sem corte (contain).
+              fits: { 8: 'contain' },
               specs: [
-                { label: 'Espécies', value: 'Tauari, Cumaru, Sucupira, Canela, Peroba Mica' },
+                { label: 'Espécies', value: 'Cumaru, Ipê, Tauari, Catuaba, Peroba do Campo, Sucupira Negra, Peroba Mica, Cabreúva Dourada e Pau Mulato.' },
                 { label: 'Origem', value: 'Brasil · manejo sustentável' },
               ]
             },
@@ -256,16 +254,14 @@
         {
           key: 'escadas',
           title: 'Escadas',
-          desc: 'A ascensão da forma. Design esculpido em madeira para conectar níveis com elegância absoluta.',
+          desc: 'Escadas revestidas, estruturais e flutuantes desenvolvidas com madeiras nobres como Ipê, Cumaru, Carvalho Europeu e Freijó. Cada degrau, espelho e guarda-corpo executado sob medida — com precisão milimétrica, acabamento impecável e total coerência com a linguagem arquitetônica do projeto.',
           cover: 'escadas/hero.webp',
           videos: [
-            { type: 'youtube', id: 'J82KxeHE1Yg', vertical: true, title: 'O detalhe que define o projeto premium é aquele que ninguém vê' }
+            { type: 'youtube', id: 'J82KxeHE1Yg', vertical: true, title: 'O detalhe que define o projeto premium é aquele que ninguém vê' },
+            { type: 'youtube', id: 'GjtCATN2fB4', vertical: true, title: 'Escada em madeira nobre executada sob medida' }
           ],
           images: [
-            { src: "https://parket.com.br/wp-content/uploads/2026/05/IMG_1848.jpeg", name: "Wide Grey" },
-            { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_ESC-03.jpg", name: "Peroba do Campo" },
-            { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_ESC-05.jpg", name: "Peroba Demolição" },
-            { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_ESC-07.jpg", name: "Peroba Demolição" },
+            
             { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_ESC-09.jpg", name: "Carvalho Europeu Naturalle" },
             { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_ESC-10.jpg", name: "Carvalho Europeu Customizado" },
             { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_ESC-11.jpg", name: "Pinho de Riga" },
@@ -372,19 +368,35 @@
         document.documentElement.classList.add('single-category');
         const pi = document.getElementById('products-index');
         if (pi) pi.style.display = 'none';
+        // Hero "split" da home tem título editorial e imagem próprios — não sobrescreve.
+        const heroViewport = document.getElementById('hero-viewport');
+        const isSplitHero = heroViewport && heroViewport.classList.contains('hero-split');
         // Hero subtitle: só o nome da categoria
         const heroContent = document.getElementById('hero-content');
         const catTitle = (PRODUCTS[0] && PRODUCTS[0].title) || SINGLE_CATEGORY;
-        if (heroContent) {
+        if (heroContent && !isSplitHero) {
           heroContent.innerHTML = `
-            <span class="font-label uppercase tracking-[0.6em] text-[22.5px] text-white block">${catTitle}</span>
+            <span class="font-label uppercase tracking-[0.6em] text-[24px] text-white block">${catTitle}</span>
           `;
         }
         // Use category-specific hero image (each /<cat>/autoload/ has its own)
         const heroBg = document.getElementById('hero-bg');
-        if (heroBg) {
+        if (heroBg && !isSplitHero) {
           heroBg.style.backgroundImage = `url('${SINGLE_CATEGORY}/autoload/Hero.webp')`;
         }
+      }
+
+      // ─── SINGLE-COLLECTION FILTER ───────────────────────────────
+      // When the folder's index.html sets window.PARKET_COLLECTION, keep only
+      // that one collection inside each product. Used to split Pisos into one
+      // standalone site per collection (Brazil, Eternos, …). Inert if unset.
+      const SINGLE_COLLECTION = typeof window !== 'undefined' && window.PARKET_COLLECTION ? String(window.PARKET_COLLECTION) : null;
+      if (SINGLE_COLLECTION) {
+        PRODUCTS.forEach(p => {
+          if (p.collections && p.collections.length) {
+            p.collections = p.collections.filter(c => c.key === SINGLE_COLLECTION);
+          }
+        });
       }
 
       // ─── HELPERS ─────────────────────────────────────────────────
@@ -398,16 +410,25 @@
         img.src = src;
       });
 
+      const KNOWN_LOCAL = {
+        'pisos/brazil': [2,3,4,5,6,7,8,9,10,11].map(n => `pisos/brazil/${String(n).padStart(2,'0')}.webp`),
+        'pisos/eternos': [1,2,3,4,5].map(n => `pisos/eternos/${String(n).padStart(2,'0')}.webp`),
+        'pisos/unicos': [1,2,3,4].map(n => `pisos/unicos/${String(n).padStart(2,'0')}.webp`)
+      };
+
       async function findLocalImages(folder) {
+        if (KNOWN_LOCAL[folder]) return KNOWN_LOCAL[folder];
         const found = [];
         let misses = 0;
         for (let i = 1; i <= MAX_LOCAL; i++) {
           const num = String(i).padStart(2, '0');
-          let hit = false;
-          for (const ext of EXTS) {
-            try { const src = await probe(`${folder}/${num}.${ext}`); found.push(src); hit = true; break; } catch {}
+          try {
+            const src = await probe(`${folder}/${num}.webp`);
+            found.push(src);
+            misses = 0;
+          } catch {
+            if (++misses >= 2) break;
           }
-          if (!hit) { if (++misses >= 3) break; } else { misses = 0; }
         }
         return found;
       }
@@ -430,13 +451,13 @@
       let lbImages = [], lbIndex = 0;
       window.openLightbox = (images, idx) => {
         lbImages = images; lbIndex = idx;
-        lbImg.src = getImg(lbImages[lbIndex]).src;
+        lbImg.src = proxify(getImg(lbImages[lbIndex]).src, 1600);
         lb.classList.add('active');
         document.body.style.overflow = 'hidden';
       };
       window.closeLightbox = () => { lb.classList.remove('active'); document.body.style.overflow = ''; };
-      window.lbNext = () => { lbIndex = (lbIndex + 1) % lbImages.length; lbImg.src = getImg(lbImages[lbIndex]).src; };
-      window.lbPrev = () => { lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length; lbImg.src = getImg(lbImages[lbIndex]).src; };
+      window.lbNext = () => { lbIndex = (lbIndex + 1) % lbImages.length; lbImg.src = proxify(getImg(lbImages[lbIndex]).src, 1600); };
+      window.lbPrev = () => { lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length; lbImg.src = proxify(getImg(lbImages[lbIndex]).src, 1600); };
       document.addEventListener('keydown', (e) => {
         if (!lb.classList.contains('active')) return;
         if (e.key === 'Escape') closeLightbox();
@@ -463,13 +484,27 @@
           item.className = 'photo-stream-item';
           if (idPrefix) item.id = `foto-${idPrefix}-${i}`;
           const label = caption ? `<span class="photo-num-inline">${num}</span> ${caption}` : `<span class="photo-num-inline">${num}</span>`;
-          const focusStyle = img.focus ? ` style="object-position: center ${img.focus};"` : '';
+          const styleParts = [];
+          if (img.focus) styleParts.push(`object-position: center ${img.focus}`);
+          if (img.fit) styleParts.push(`object-fit: ${img.fit}`);
+          const focusStyle = styleParts.length ? ` style="${styleParts.join('; ')};"` : '';
           const proxiedSrc = proxify(img.src, 1600);
+          // Imagens remotas ganham srcset (mobile baixa versão menor via proxy)
+          const isRemote = img.src.includes('parket.com.br');
+          const srcsetAttr = isRemote
+            ? ` srcset="${proxify(img.src, 800)} 800w, ${proxify(img.src, 1200)} 1200w, ${proxify(img.src, 1600)} 1600w" sizes="100vw"`
+            : '';
           // First photo of each stream loads eagerly with high priority
           const loadingAttr = i === 0 ? 'eager' : 'lazy';
           const priorityAttr = i === 0 ? ' fetchpriority="high"' : '';
+          // Foto exibida inteira (fit contain): a própria foto, desfocada,
+          // preenche o fundo para a moldura ocupar 100% da tela.
+          const blurLayer = img.fit === 'contain'
+            ? `<img class="photo-blur-bg" aria-hidden="true" decoding="async" loading="${loadingAttr}" src="${proxiedSrc}" alt="">`
+            : '';
           item.innerHTML = `
-            <img decoding="async" loading="${loadingAttr}"${priorityAttr} src="${proxiedSrc}" alt="${caption || title + ' ' + (i + 1)}"${focusStyle}>
+            ${blurLayer}
+            <img decoding="async" loading="${loadingAttr}"${priorityAttr} src="${proxiedSrc}"${srcsetAttr} alt="${caption || title + ' ' + (i + 1)}"${focusStyle}>
             <figcaption class="photo-stream-caption">${label}</figcaption>
           `;
           container.appendChild(item);
@@ -483,21 +518,27 @@
         const wrap = document.createElement('div');
         wrap.className = 'video-block-wrap fade-up';
         const row = videos.map(v => {
+          let media;
           if (v.type === 'youtube') {
             const poster = v.poster || `https://i.ytimg.com/vi/${v.id}/${v.vertical ? 'maxresdefault' : 'hqdefault'}.jpg`;
-            return `
+            media = `
               <div class="video-block${v.vertical ? ' vertical' : ''}" data-yt="${v.id}" role="button" aria-label="Reproduzir vídeo">
-                <img class="video-poster" loading="lazy" decoding="async" src="${poster}" alt="Vídeo">
+                <img class="video-poster" loading="lazy" decoding="async" src="${poster}" alt="Vídeo" onload="if(this.naturalWidth<=120)this.src='https://i.ytimg.com/vi/${v.id}/hqdefault.jpg'" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/${v.id}/hqdefault.jpg'">
+                <div class="video-play" aria-hidden="true"></div>
+              </div>`;
+          } else {
+            media = `
+              <div class="video-block custom-player${v.vertical ? ' vertical' : ''}">
+                <video preload="metadata" playsinline${v.poster ? ` poster="${v.poster}"` : ''}>
+                  <source src="${v.src}" type="video/mp4">
+                </video>
                 <div class="video-play" aria-hidden="true"></div>
               </div>`;
           }
-          // mp4
           return `
-            <div class="video-block custom-player${v.vertical ? ' vertical' : ''}">
-              <video preload="metadata" playsinline${v.poster ? ` poster="${v.poster}"` : ''}>
-                <source src="${v.src}" type="video/mp4">
-              </video>
-              <div class="video-play" aria-hidden="true"></div>
+            <div class="video-item${v.vertical ? ' vertical' : ''}">
+              ${media}
+              ${v.title ? `<p class="video-caption">${v.title}</p>` : ''}
             </div>`;
         }).join('');
         wrap.innerHTML = `
@@ -527,7 +568,7 @@
           prevBtn.classList.toggle('is-disabled', rowEl.scrollLeft <= 1);
           nextBtn.classList.toggle('is-disabled', rowEl.scrollLeft >= max);
           // Progress: which item is currently leftmost-visible
-          const first = rowEl.querySelector('.video-block');
+          const first = rowEl.querySelector('.video-item');
           if (first && progressEl) {
             const w = first.getBoundingClientRect().width + 16;
             const idx = Math.min(videos.length, Math.round(rowEl.scrollLeft / w) + 1);
@@ -535,7 +576,7 @@
           }
         }
         function pageScroll(direction) {
-          const firstItem = rowEl.querySelector('.video-block');
+          const firstItem = rowEl.querySelector('.video-item');
           if (!firstItem) return;
           const itemWidth = firstItem.getBoundingClientRect().width + 16; // + gap
           const visibleCount = Math.max(1, Math.round(rowEl.clientWidth / itemWidth));
@@ -718,7 +759,7 @@
           let imgs = col.images;
           if (!imgs && col.localFolder) {
             const local = await findLocalImages(col.localFolder);
-            imgs = local.map((src, i) => ({ src, name: (col.names || {})[i + 1] }));
+            imgs = local.map((src, i) => ({ src, name: (col.names || {})[i + 1], fit: (col.fits || {})[i + 1] }));
           }
           if (!imgs || !imgs.length) {
             stream.remove();
@@ -775,7 +816,9 @@
           sideEntries.push({ el: a, targetId: `produto-${p.key}` });
         }
 
-        if (p.collections && p.collections.length) {
+        // Sublinks de coleção só quando há mais de uma — com coleção única
+        // (ex.: página Brazil) o link seria redundante e não deve existir.
+        if (p.collections && p.collections.length > 1) {
           p.collections.forEach(c => {
             const sub = document.createElement('a');
             sub.href = `#colecao-${p.key}-${c.key}`;
@@ -870,7 +913,7 @@
         (product.collections || []).map(async (col) => {
           if (!col.images && col.localFolder) {
             const local = await findLocalImages(col.localFolder);
-            col.images = local.map((src, i) => ({ src, name: (col.names || {})[i + 1] }));
+            col.images = local.map((src, i) => ({ src, name: (col.names || {})[i + 1], fit: (col.fits || {})[i + 1] }));
           }
         })
       ));
@@ -884,7 +927,7 @@
         if (product.collections && product.collections.length) {
           productSection.appendChild(buildProductCover(product));
           // Índice numerado de coleções ("Escolha um deck:") — hero da categoria única.
-          if (SINGLE_CATEGORY) productSection.appendChild(buildCollectionsIndex(product));
+          
           product.collections.forEach((col, ci) => {
             productSection.appendChild(buildCollection(product, col, ci));
           });
@@ -945,13 +988,15 @@
             el.style.transform = `translate3d(0, ${(distance * factor).toFixed(1)}px, 0)`;
           });
         }
-        window.addEventListener('scroll', () => {
-          if (!parallaxTicking) {
-            requestAnimationFrame(updateParallax);
-            parallaxTicking = true;
+        const ioHeroParallax = new IntersectionObserver((entries) => {
+          if (entries[0].isIntersecting) {
+            window.addEventListener('scroll', updateParallax, { passive: true });
+            updateParallax();
+          } else {
+            window.removeEventListener('scroll', updateParallax);
           }
-        }, { passive: true });
-        updateParallax();
+        });
+        ioHeroParallax.observe(heroSec);
       }
 
       // ─── REVEAL side index after "Pisos · coleções" (first collections-index) ─
@@ -960,8 +1005,9 @@
       const firstCollectionEl = firstCollection
         ? document.getElementById(`colecao-${firstProduct.key}-${firstCollection.key}`)
         : null;
-      if (firstCollectionEl) {
+      if (firstCollectionEl && sideIndex) {
         const checkReveal = () => {
+          if (window.innerWidth <= 1024) return;
           const rect = firstCollectionEl.getBoundingClientRect();
           // Reveal when the first collection (Brazil) starts entering the viewport
           const entering = rect.top < window.innerHeight * 0.85;
@@ -973,6 +1019,7 @@
 
       // ─── SCROLL-SPY for side index ───────────────────────────────
       function updateSideIndex() {
+        if (window.innerWidth <= 1024 || !sideIndex) return;
         const centerY = window.innerHeight / 2;
         let best = null, bestDist = Infinity;
         for (const entry of sideEntries) {
@@ -1001,6 +1048,7 @@
       }
       let spyTicking = false;
       window.addEventListener('scroll', () => {
+        if (window.innerWidth <= 1024) return;
         if (!spyTicking) {
           requestAnimationFrame(() => { updateSideIndex(); spyTicking = false; });
           spyTicking = true;
@@ -1022,9 +1070,7 @@
       }, { passive: true });
       updateHero();
 
-      // ─── MOUSE PARALLAX (reutilizável)
-      // Qualquer elemento com [data-mouse-parallax] segue o mouse devagar
-      // dentro do seu container (closest [data-mouse-parallax-host] ou parentElement)
+      // ─── MOUSE PARALLAX (reutilizável — desativado em telas touch/mobile)
       function attachMouseParallax(bgEl) {
         if (!bgEl || bgEl.__mouseParallaxAttached) return;
         bgEl.__mouseParallaxAttached = true;
@@ -1032,11 +1078,9 @@
         const container = bgEl.closest('[data-mouse-parallax-host]') || bgEl.parentElement;
         if (!container) return;
 
-        // Sobrescreve transition pra remover atraso no transform.
-        // Mantém opacidade (fade-up) e outras propriedades animadas — só o transform fica instantâneo.
         bgEl.style.transition = 'opacity 0.9s cubic-bezier(0.16,1,0.3,1)';
 
-        const MAX = parseFloat(bgEl.dataset.mouseParallax) || 40; // px máximo
+        const MAX = parseFloat(bgEl.dataset.mouseParallax) || 40;
         const EASE = 0.06;
         let targetX = 0, targetY = 0;
         let currentX = 0, currentY = 0;
@@ -1068,45 +1112,16 @@
         }
       }
 
-      // Escaneia todos os elementos com data-mouse-parallax — atual e futuros
-      function scanMouseParallax() {
-        document.querySelectorAll('[data-mouse-parallax]').forEach(attachMouseParallax);
+      // Escaneia apenas em dispositivos desktop com ponteiro preciso
+      const isDesktopPointer = window.matchMedia('(pointer: fine)').matches;
+      if (isDesktopPointer) {
+        function scanMouseParallax() {
+          document.querySelectorAll('[data-mouse-parallax]').forEach(attachMouseParallax);
+        }
+        scanMouseParallax();
+        const parallaxRescan = new MutationObserver(scanMouseParallax);
+        parallaxRescan.observe(document.body, { childList: true, subtree: true });
       }
-      scanMouseParallax();
-      // Re-escanear de tempos em tempos (covers de coleção são adicionadas async)
-      const parallaxRescan = new MutationObserver(scanMouseParallax);
-      parallaxRescan.observe(document.body, { childList: true, subtree: true });
-
-      // ─── AUTO-SCROLL: se ficar 2s no hero sem interação, desce pra próxima seção
-      (function autoAdvanceHero() {
-        const nextSection = document.getElementById('sobre')
-          || document.getElementById('processo')
-          || document.getElementById('products-index')
-          || document.querySelector('main');
-        if (!nextSection) return;
-
-        let cancelled = false;
-        const cancel = () => {
-          cancelled = true;
-          window.removeEventListener('scroll', onInteract);
-          window.removeEventListener('wheel', onInteract);
-          window.removeEventListener('touchstart', onInteract);
-          window.removeEventListener('keydown', onInteract);
-        };
-        const onInteract = () => cancel();
-
-        // Qualquer interação cancela o auto-scroll
-        window.addEventListener('scroll', onInteract, { passive: true, once: true });
-        window.addEventListener('wheel', onInteract, { passive: true, once: true });
-        window.addEventListener('touchstart', onInteract, { passive: true, once: true });
-        window.addEventListener('keydown', onInteract, { once: true });
-
-        setTimeout(() => {
-          if (cancelled) return;
-          if (window.scrollY > 10) return; // já saiu do topo (interagiu)
-          nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 2000);
-      })();
 
       // ─── BACK TO TOP ─────────────────────────
       const topBtn = document.getElementById('back-to-top');
@@ -1115,7 +1130,6 @@
         topBtn.addEventListener('click', () => {
           window.scrollTo({ top: 0, behavior: 'smooth' });
         });
-        // "Voltar ao topo" aparece após rolar além do hero
         const updateFloating = () => {
           topBtn.classList.toggle('is-visible', window.scrollY > window.innerHeight * 0.7);
         };
@@ -1127,6 +1141,7 @@
       (function scrollFadeMulticamadas() {
         const els = document.querySelectorAll('.multicamadas-line');
         if (!els.length) return;
+        const parentSec = els[0].closest('section') || els[0].parentElement;
         let ticking = false;
         const update = () => {
           const vh = window.innerHeight;
@@ -1143,10 +1158,168 @@
           });
           ticking = false;
         };
-        window.addEventListener('scroll', () => {
+        const onScroll = () => {
           if (!ticking) { requestAnimationFrame(update); ticking = true; }
-        }, { passive: true });
-        update();
+        };
+        if (parentSec) {
+          const io = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+              window.addEventListener('scroll', onScroll, { passive: true });
+              update();
+            } else {
+              window.removeEventListener('scroll', onScroll);
+            }
+          });
+          io.observe(parentSec);
+        }
+      })();
+
+      // ─── TEXTURAS: réguas que trocam com navegação lateral (clara → escura)
+      (function texturasLaterais() {
+        const wrap = document.getElementById('texturas');
+        if (!wrap) return;
+        const regua = document.getElementById('texturas-regua');
+        const nome = document.getElementById('texturas-nome');
+        const desc = document.getElementById('texturas-desc');
+        const atual = document.getElementById('texturas-atual');
+        const total = document.getElementById('texturas-total');
+        const stage = wrap.querySelector('.texturas-stage');  
+
+        // Ordenadas por luminância média da textura: da mais clara à mais escura.
+        // Descrições oficiais de parket.com.br (seção Revestimentos).
+        const ESPECIES = [
+          ['carvalho-europeu', 'Carvalho Europeu', 'Nobreza atemporal em tons claros e acetinados, com veios suaves que trazem equilíbrio entre tradição e modernidade.'],
+          ['freijo', 'Freijó', 'De coloração amendoada e desenho discreto, confere sofisticação serena e um acabamento naturalmente elegante.'],
+          ['cumaru', 'Cumaru', 'Madeira extremamente resistente, de cor castanho-avermelhada, indicada para projetos que exigem durabilidade e imponência.'],
+          ['ipe-tabaco', 'Ipê', 'Densa e imponente, de tom castanho profundo, é referência em resistência mecânica e presença marcante no ambiente.'],
+        ];
+        const n = ESPECIES.length;
+        const pad = (v) => String(v).padStart(2, '0');
+
+        // Monta as imagens empilhadas (crossfade por opacity)
+        ESPECIES.forEach(([slug, label], i) => {
+          const img = document.createElement('img');
+          img.src = `texturas/${slug}.jpg`;
+          img.alt = '';
+          img.loading = 'lazy';
+          img.decoding = 'async';
+          if (i === 0) img.classList.add('is-visivel');
+          regua.appendChild(img);
+        });
+        total.textContent = pad(n);
+
+        const palco = wrap.querySelector('.texturas-palco');
+        const setas = Array.from(wrap.querySelectorAll('.texturas-seta'));
+        const imgs = Array.from(regua.children);
+        const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
+
+        let idx = 0;
+        let nomeTimer = null;
+        nome.textContent = ESPECIES[0][1];
+        desc.textContent = ESPECIES[0][2];
+
+        const trocaNome = (label, texto) => {
+          nome.classList.add('is-trocando');
+          desc.classList.add('is-trocando');
+          clearTimeout(nomeTimer);
+          nomeTimer = setTimeout(() => {
+            nome.textContent = label;
+            desc.textContent = texto;
+            nome.classList.remove('is-trocando');
+            desc.classList.remove('is-trocando');
+          }, 200);
+        };
+
+        // dir: +1 avança (entra pela direita), -1 volta (entra pela esquerda)
+        const ir = (next, dir) => {
+          next = clamp(next, 0, n - 1);
+          if (next === idx) return;
+          if (!dir) dir = next > idx ? 1 : -1;
+
+          const sai = imgs[idx];
+          const entra = imgs[next];
+          sai.style.setProperty('--sai', (dir * -8) + '%');
+          sai.classList.remove('is-visivel');
+          entra.style.setProperty('--sai', (dir * 8) + '%');
+          entra.style.setProperty('--arrasto', '0px');
+          // força o reflow para que a posição inicial seja aplicada antes da transição
+          void entra.offsetWidth;
+          entra.classList.add('is-visivel');
+
+          idx = next;
+          atual.textContent = pad(next + 1);
+          trocaNome(ESPECIES[next][1], ESPECIES[next][2]);
+          stage.style.setProperty('--texturas-p', (n > 1 ? next / (n - 1) : 1).toFixed(4));
+          setas.forEach(b => {
+            const d = Number(b.dataset.dir);
+            b.disabled = (d < 0 && idx === 0) || (d > 0 && idx === n - 1);
+          });
+          palco.classList.add('is-usado');
+        };
+
+        stage.style.setProperty('--texturas-p', '0');
+        setas.forEach(b => {
+          if (Number(b.dataset.dir) < 0) b.disabled = true;
+          b.addEventListener('click', () => ir(idx + Number(b.dataset.dir), Number(b.dataset.dir)));
+        });
+
+        // ── roda/trackpad horizontal (deltaX) e shift+scroll
+        let acumulado = 0;
+        let travado = false;
+        wrap.addEventListener('wheel', (e) => {
+          const dx = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : (e.shiftKey ? e.deltaY : 0);
+          if (!dx) return;
+          e.preventDefault();
+          if (travado) return;
+          acumulado += dx;
+          if (Math.abs(acumulado) >= 60) {
+            const dir = acumulado > 0 ? 1 : -1;
+            acumulado = 0;
+            travado = true;
+            setTimeout(() => { travado = false; }, 320);
+            ir(idx + dir, dir);
+          }
+        }, { passive: false });
+
+        // ── arraste com mouse/toque sobre a régua
+        let inicioX = null;
+        let largura = 1;
+        const alvo = () => imgs[idx];
+
+        regua.addEventListener('pointerdown', (e) => {
+          if (e.pointerType === 'mouse' && e.button !== 0) return;
+          inicioX = e.clientX;
+          largura = regua.offsetWidth || 1;
+          regua.classList.add('is-arrastando');
+          regua.setPointerCapture(e.pointerId);
+        });
+        regua.addEventListener('pointermove', (e) => {
+          if (inicioX === null) return;
+          const dx = e.clientX - inicioX;
+          alvo().style.setProperty('--arrasto', (dx * 0.25).toFixed(1) + 'px');
+        });
+        const soltar = (e) => {
+          if (inicioX === null) return;
+          const dx = e.clientX - inicioX;
+          inicioX = null;
+          regua.classList.remove('is-arrastando');
+          alvo().style.setProperty('--arrasto', '0px');
+          if (Math.abs(dx) > Math.max(40, largura * 0.12)) {
+            const dir = dx < 0 ? 1 : -1;
+            ir(idx + dir, dir);
+          }
+        };
+        regua.addEventListener('pointerup', soltar);
+        regua.addEventListener('pointercancel', soltar);
+
+        // ── setas do teclado quando a seção está na tela
+        window.addEventListener('keydown', (e) => {
+          if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+          const r = wrap.getBoundingClientRect();
+          if (r.bottom < window.innerHeight * 0.3 || r.top > window.innerHeight * 0.7) return;
+          const dir = e.key === 'ArrowRight' ? 1 : -1;
+          ir(idx + dir, dir);
+        });
       })();
 
       // ─── BRAND LOCK: impede tradução automática da palavra "Parket"

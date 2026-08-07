@@ -1,7 +1,7 @@
 class ParketLoader extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
-      <div id="parket-global-loader" style="position: fixed; inset: 0; background: #000; z-index: 10000; display: flex; align-items: center; justify-content: center; transition: opacity 0.6s cubic-bezier(.22,.61,.36,1); pointer-events: none;">
+      <div id="parket-global-loader" style="position: fixed; inset: 0; background: #000; z-index: 10000; display: flex; align-items: center; justify-content: center; transition: opacity 1s cubic-bezier(0.76, 0, 0.24, 1); pointer-events: none;">
         <h1 style="font-family: 'Inter', sans-serif; font-size: 1.5rem; letter-spacing: 0.5em; text-transform: uppercase; color: #fff; font-weight: 200; animation: pulse 2s infinite ease-in-out;">
           Parket
         </h1>
@@ -498,7 +498,7 @@ class ParketNav extends HTMLElement {
           color: #fff;
           font-family: 'Inter', sans-serif;
           font-size: 15px;
-          font-weight: 400;
+          font-weight: 300;
           letter-spacing: 0.02em;
         }
         .parket-search-input::placeholder { color: rgba(255,255,255,0.35); }
@@ -542,7 +542,7 @@ class ParketNav extends HTMLElement {
         .parket-search-result:focus { background: rgba(255,255,255,0.05); color: #fff; outline: 0; }
         .parket-search-result-name {
           font-size: 15px;
-          font-weight: 400;
+          font-weight: 300;
           letter-spacing: 0.01em;
         }
         .parket-search-result-cat {
@@ -557,7 +557,7 @@ class ParketNav extends HTMLElement {
           padding: 24px 18px;
           color: rgba(255,255,255,0.4);
           font-size: 13px;
-          font-weight: 400;
+          font-weight: 300;
           letter-spacing: 0.02em;
         }
         body.parket-search-locked { overflow: hidden; }
@@ -573,14 +573,9 @@ class ParketNav extends HTMLElement {
     this._overlay.addEventListener('click', (e) => {
       if (e.target === this._overlay) this._closeSearch();
     });
-    let searchDebounceTimer = null;
     this._input.addEventListener('input', (e) => {
       const isDelete = !!(e.inputType && e.inputType.startsWith('delete'));
-      const val = e.target.value;
-      if (searchDebounceTimer) cancelAnimationFrame(searchDebounceTimer);
-      searchDebounceTimer = requestAnimationFrame(() => {
-        this._handleType(val, isDelete);
-      });
+      this._handleType(e.target.value, isDelete);
     });
     this._input.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') this._closeSearch();
