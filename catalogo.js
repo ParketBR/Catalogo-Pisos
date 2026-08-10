@@ -926,8 +926,11 @@
 
         if (product.collections && product.collections.length) {
           productSection.appendChild(buildProductCover(product));
-          // Índice numerado de coleções ("Escolha um deck:") — hero da categoria única.
-          
+          // Índice numerado de coleções ("Escolha um piso:") — hero da categoria única.
+          // Com uma coleção só (sites Brazil, Eternos, …) a lista seria redundante.
+          if (SINGLE_CATEGORY && product.collections.length > 1) {
+            productSection.appendChild(buildCollectionsIndex(product));
+          }
           product.collections.forEach((col, ci) => {
             productSection.appendChild(buildCollection(product, col, ci));
           });
