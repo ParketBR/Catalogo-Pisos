@@ -22,10 +22,7 @@
               key: 'brazil', title: 'Brazil',
               desc: 'A autenticidade das madeiras brasileiras traduzida em réguas de beleza única. Uma coleção que exalta a alma tropical com cores profundas e fibras marcantes.',
               localFolder: 'pisos/brazil',
-              names: { 1: 'Canela', 2: 'Peroba Mica', 3: 'Peroba Mica', 4: 'Cumaru', 5: 'Cumaru', 6: 'Tauari Naturalle', 7: 'Cumaru', 8: 'Chevron de Tauari', 9: 'Cumaru', 10: 'Sucupira Rústica' },
-              // Foto 9 (Chevron de Tauari) é retrato: em vez do corte "cover"
-              // (que dá zoom forte), exibe a foto inteira, sem corte (contain).
-              fits: { 8: 'contain' },
+              names: { 1: 'Canela', 2: 'Peroba Mica', 3: 'Peroba Mica', 4: 'Cumaru', 5: 'Tauari', 6: 'Tauari Naturalle', 7: 'Cumaru' },
               specs: [
                 { label: 'Espécies', value: 'Cumaru, Ipê, Tauari, Catuaba, Peroba do Campo, Sucupira Negra, Peroba Mica, Cabreúva Dourada e Pau Mulato.' },
                 { label: 'Origem', value: 'Brasil · manejo sustentável' },
@@ -35,7 +32,7 @@
               key: 'eternos', title: 'Eternos',
               desc: 'Tons e texturas que atravessam o tempo. Uma coleção concebida para durar visualmente e estruturalmente, em qualquer cenário.',
               localFolder: 'pisos/eternos',
-              names: { 1: 'Bambu Demolição', 2: 'Canela Demolição', 4: 'Canela Demolição', 5: 'Canela Demolição' },
+              names: { 1: 'Bambu Demolição', 2: 'Canela Demolição', 3: 'Canela Demolição' },
               specs: [
                 { label: 'Espécies', value: 'Bambu, Canela' },
                 { label: 'Origem', value: 'Madeira de reaproveitamento' },
@@ -67,12 +64,10 @@
                 { src: "https://parket.com.br/wp-content/uploads/2026/03/european-oak-capuccino-1.jpeg", name: "Carvalho Europeu Cappuccino" },
                 { src: "https://parket.com.br/wp-content/uploads/2026/03/European-Oak-Giant-1.jpg", name: "Carvalho Europeu<br>Mont Blanc" },
                 { src: "https://parket.com.br/wp-content/uploads/2026/03/Imagem_7-30-1.webp", focus: 'bottom' },
-                { src: "https://parket.com.br/wp-content/uploads/2026/03/IMG_0150-1-scaled.jpg", name: "Carvalho Europeu Naturalle" },
                 { src: "https://parket.com.br/wp-content/uploads/2026/03/IMG_6862-1-scaled.jpg", name: "Carvalho Europeu<br>Mont Blanc" },
                 { src: "https://parket.com.br/wp-content/uploads/2026/03/IMG_8925-2-1.jpeg", name: "Carvalho Europeu Capuccino" },
                 { src: "https://parket.com.br/wp-content/uploads/2026/03/IMG_8932-2-1.jpeg", name: "Carvalho Europeu Capuccino" },
                 { src: "https://parket.com.br/wp-content/uploads/2026/03/oak-flooring-dinesen-victoria-miro-gallery-wide-wooden-floorboards-02-1.jpg", name: "Carvalho Europeu Naturalle" },
-                { src: "https://parket.com.br/wp-content/uploads/2026/03/sao_paulo_tch1-1.jpg", name: "Carvalho Europeu Marrone" },
                 { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PI_CA-01.jpg", name: "Carvalho Europeu Milano" },
                 { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PI_CA-03.jpg", name: "Carvalho Europeu<br>Mont Blanc" },
                 { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PI_CA-05.jpg", name: "Carvalho Europeu Nevado" },
@@ -411,8 +406,8 @@
       });
 
       const KNOWN_LOCAL = {
-        'pisos/brazil': [2,3,4,5,6,7,8,9,10,11].map(n => `pisos/brazil/${String(n).padStart(2,'0')}.webp`),
-        'pisos/eternos': [1,2,3,4,5].map(n => `pisos/eternos/${String(n).padStart(2,'0')}.webp`),
+        'pisos/brazil': [2,3,4,5,6,7,8].map(n => `pisos/brazil/${String(n).padStart(2,'0')}.webp`),
+        'pisos/eternos': [1,2,4].map(n => `pisos/eternos/${String(n).padStart(2,'0')}.webp`),
         'pisos/unicos': [1,2,3,4].map(n => `pisos/unicos/${String(n).padStart(2,'0')}.webp`)
       };
 
@@ -482,6 +477,7 @@
           const num = String(i + 1).padStart(2, '0');
           const item = document.createElement('figure');
           item.className = 'photo-stream-item';
+          if (img.fit === 'contain') item.classList.add('photo-fit-contain');
           if (idPrefix) item.id = `foto-${idPrefix}-${i}`;
           const label = caption ? `<span class="photo-num-inline">${num}</span> ${caption}` : `<span class="photo-num-inline">${num}</span>`;
           const styleParts = [];

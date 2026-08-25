@@ -547,12 +547,22 @@
       object-fit: cover;
       /* Fotos em retrato num container paisagem perdem ~25% embaixo no corte
          central — justamente onde está o piso. Puxa o enquadramento p/ baixo,
-         sem chegar ao extremo (acima de ~70% o cenário some e sobra só piso). */
-      object-position: center 65%;
-      transform: scale(1.04);
+         sem chegar ao extremo (acima de ~75% o cenário some e sobra só piso). */
+      object-position: center 72%;
+      /* O object-position só age quando sobra altura — em foto paisagem numa
+         tela estreita não sobra, e o piso fica espremido embaixo. O zoom
+         ancorado na base corta o teto em qualquer proporção de tela. */
+      transform-origin: center bottom;
+      transform: scale(1.18);
       transition: transform var(--dur) var(--ease);
     }
-    .photo-stream-item.in-view img { transform: scale(1); }
+    .photo-stream-item.in-view img { transform: scale(1.14); }
+    /* Foto exibida inteira (fit contain): nada de zoom, senão ela é cortada. */
+    .photo-stream-item.photo-fit-contain img:not(.photo-blur-bg) {
+      transform-origin: center center;
+      transform: scale(1.04);
+    }
+    .photo-stream-item.photo-fit-contain.in-view img:not(.photo-blur-bg) { transform: scale(1); }
     /* Fundo desfocado por trás de fotos exibidas inteiras (fit contain) */
     
     .photo-stream-item img:not(.photo-blur-bg) { position: relative; z-index: 1; }
@@ -1044,7 +1054,10 @@
     /* Motion: respeitar prefers-reduced-motion globalmente */
     @media (prefers-reduced-motion: reduce) {
       .fade-up { opacity: 1; transform: none; transition: none; }
-      .product-cover-bg, .collection-cover-bg, .photo-stream-item img { transition: none; transform: none; }
+      .product-cover-bg, .collection-cover-bg { transition: none; transform: none; }
+      /* mantém o enquadramento no piso, só sem a animação */
+      .photo-stream-item img { transition: none; transform: scale(1.14); }
+      .photo-stream-item.photo-fit-contain img:not(.photo-blur-bg) { transform: none; }
     }
 
     /* ── TEXTURAS · réguas que trocam com o scroll (seção clara) ── */
