@@ -22,7 +22,13 @@
               key: 'brazil', title: 'Brazil',
               desc: 'A autenticidade das madeiras brasileiras traduzida em réguas de beleza única. Uma coleção que exalta a alma tropical com cores profundas e fibras marcantes.',
               localFolder: 'pisos/brazil',
-              names: { 1: 'Canela', 2: 'Peroba Mica', 3: 'Peroba Mica', 4: 'Cumaru', 5: 'Tauari', 6: 'Tauari Naturalle', 7: 'Cumaru' },
+              names: {
+                1: 'Canela', 2: 'Peroba Mica', 3: 'Cumaru', 4: 'Tauari',
+                5: 'Cumaru', 6: 'Cumaru', 7: 'Tauari', 8: 'Peroba do Campo',
+                9: 'Cabreúva Dourada', 10: 'Pau Mulato', 11: 'Tauari Naturalle',
+                12: 'Pau Mulato'
+                // 13 e 14 sem nome (arquivos "foto 1" e "foto 2")
+              },
               specs: [
                 { label: 'Espécies', value: 'Cumaru, Ipê, Tauari, Catuaba, Peroba do Campo, Sucupira Negra, Peroba Mica, Cabreúva Dourada e Pau Mulato.' },
                 { label: 'Origem', value: 'Brasil · manejo sustentável' },
@@ -32,9 +38,15 @@
               key: 'eternos', title: 'Eternos',
               desc: 'Tons e texturas que atravessam o tempo. Uma coleção concebida para durar visualmente e estruturalmente, em qualquer cenário.',
               localFolder: 'pisos/eternos',
-              names: { 1: 'Bambu Demolição', 2: 'Canela Demolição', 3: 'Canela Demolição' },
+              cover: 'pisos/eternos/04.webp',
+              names: {
+                1: 'Canela Demolição', 2: 'Canela Demolição', 3: 'Canela Demolição',
+                4: 'Canela Demolição', 5: 'Canela Demolição', 6: 'Canela Demolição',
+                7: 'Canela Demolição', 8: 'Peroba Demolição', 9: 'Peroba Demolição',
+                10: 'Bambu Demolição'
+              },
               specs: [
-                { label: 'Espécies', value: 'Bambu, Canela' },
+                { label: 'Espécies', value: 'Bambu, Canela, Peroba' },
                 { label: 'Origem', value: 'Madeira de reaproveitamento' },
                 { label: 'Característica', value: 'Aspecto envelhecido natural' },
               ]
@@ -43,7 +55,7 @@
               key: 'unicos', title: 'Únicos',
               desc: 'Peças raras com desenhos irrepetíveis. Cada régua é assinada pela natureza com veios, nós e matizes singulares.',
               localFolder: 'pisos/unicos',
-              names: { 1: 'Pau ferro', 2: 'Lapacho', 3: 'Momoki de Marrocos', 4: 'Nogueira' },
+              names: { 1: 'Pau ferro', 2: 'Lapacho', 3: 'Momoki de Marrocos', 4: 'Nogueira', 5: 'Nogueira Negra' },
               specs: [
                 { label: 'Espécies', value: 'Pau Ferro, Lapacho, Nogueira, Momoki' },
                 { label: 'Origem', value: 'Seleção curada · diversas procedências' },
@@ -58,12 +70,10 @@
                 { label: 'Origem', value: 'Europa' },
               ],
               images: [
-                { src: "https://parket.com.br/wp-content/uploads/2026/03/4D5A0231-b-1-scaled.jpg", name: "Carvalho Mont Blanc" },
+                { src: "https://parket.com.br/wp-content/uploads/2026/03/4D5A0231-b-1-scaled.jpg", name: "Carvalho Europeu Naturalle" },
                 { src: "https://parket.com.br/wp-content/uploads/2026/03/27e09f2b-808a-4ecb-b60d-c2702e023383-1.jpg", name: "Carvalho Europeu<br>Mont Blanc" },
                 { src: "https://parket.com.br/wp-content/uploads/2026/03/aa120b24-69d4-48d5-b47f-b73099b875ef-2-1.jpg", name: "Carvalho Europeu Naturalle" },
-                { src: "https://parket.com.br/wp-content/uploads/2026/03/european-oak-capuccino-1.jpeg", name: "Carvalho Europeu Cappuccino" },
-                { src: "https://parket.com.br/wp-content/uploads/2026/03/European-Oak-Giant-1.jpg", name: "Carvalho Europeu<br>Mont Blanc" },
-                { src: "https://parket.com.br/wp-content/uploads/2026/03/Imagem_7-30-1.webp", focus: 'bottom' },
+                { src: "https://parket.com.br/wp-content/uploads/2026/03/european-oak-capuccino-1.jpeg", name: "Carvalho Europeu Marrone" },
                 { src: "https://parket.com.br/wp-content/uploads/2026/03/IMG_6862-1-scaled.jpg", name: "Carvalho Europeu<br>Mont Blanc" },
                 { src: "https://parket.com.br/wp-content/uploads/2026/03/IMG_8925-2-1.jpeg", name: "Carvalho Europeu Capuccino" },
                 { src: "https://parket.com.br/wp-content/uploads/2026/03/IMG_8932-2-1.jpeg", name: "Carvalho Europeu Capuccino" },
@@ -85,7 +95,12 @@
                 { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PI_CA-21.jpg", name: "Carvalho Europeu Naturalle" },
                 { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PI_CA-22.jpg", name: "Carvalho Europeu Naturalle" },
                 { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PI_CA-24.jpg", name: "Carvalho Europeu Nevado" },
-                { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PI_CA-25.jpg", name: "Carvalho Europeu Batman" }
+                { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PI_CA-25.jpg", name: "Carvalho Europeu Batman" },
+                { src: "pisos/carvalhos/01.webp", name: "Carvalho Europeu Smoke" },
+                { src: "pisos/carvalhos/02.webp", name: "Carvalho Europeu Nude" },
+                { src: "pisos/carvalhos/03.webp", name: "Carvalho Europeu" },
+                { src: "pisos/carvalhos/04.webp", name: "Carvalho Europeu" },
+                { src: "pisos/carvalhos/05.webp", name: "Carvalho Europeu" }
               ]
             },
             {
@@ -406,9 +421,9 @@
       });
 
       const KNOWN_LOCAL = {
-        'pisos/brazil': [2,3,4,5,6,7,8].map(n => `pisos/brazil/${String(n).padStart(2,'0')}.webp`),
-        'pisos/eternos': [1,2,4].map(n => `pisos/eternos/${String(n).padStart(2,'0')}.webp`),
-        'pisos/unicos': [1,2,3,4].map(n => `pisos/unicos/${String(n).padStart(2,'0')}.webp`)
+        'pisos/brazil': [2,4,5,6,8,12,13,14,15,16,7,17,18,19].map(n => `pisos/brazil/${String(n).padStart(2,'0')}.webp`),
+        'pisos/eternos': [2,4,6,7,8,9,10,11,12,1].map(n => `pisos/eternos/${String(n).padStart(2,'0')}.webp`),
+        'pisos/unicos': [1,2,3,4,5].map(n => `pisos/unicos/${String(n).padStart(2,'0')}.webp`)
       };
 
       async function findLocalImages(folder) {
@@ -762,7 +777,7 @@
             return;
           }
           const bg = cover.querySelector('.collection-cover-bg');
-          if (bg && !bg.style.backgroundImage) bg.style.backgroundImage = `url('${proxify(getImg(imgs[0]).src, 1600)}')`;
+          if (bg && !bg.style.backgroundImage) bg.style.backgroundImage = `url('${proxify(col.cover || getImg(imgs[0]).src, 1600)}')`;
           buildPhotoStream(stream, imgs, col.title);
         })();
 
