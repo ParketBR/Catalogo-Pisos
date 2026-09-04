@@ -566,6 +566,47 @@
     /* Fundo desfocado por trás de fotos exibidas inteiras (fit contain) */
     
     .photo-stream-item img:not(.photo-blur-bg) { position: relative; z-index: 1; }
+
+    /* Par de fotos dividindo a mesma moldura: duas colunas iguais, cada
+       foto em "cover" na metade da tela — mesmo padrao full-bleed do resto
+       do stream, sem encolher a foto no meio de um fundo. */
+    .photo-stream-pair {
+      display: grid;
+      /* minmax(0,...) senao a altura natural da foto estoura a coluna */
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 2px;
+    }
+    .photo-stream-pair img {
+      min-width: 0;
+      min-height: 0;
+      object-position: center center;
+    }
+
+    /* Grupos de tres ou quatro: duas colunas por duas linhas na mesma
+       moldura. Tres ou quatro colunas deixariam cada foto estreita demais
+       para um retrato. */
+    .photo-stream-pair--3,
+    .photo-stream-pair--4 {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
+    }
+
+    /* com tres, a ultima ocupa a linha de baixo inteira */
+    .photo-stream-pair--3 img:nth-of-type(3) {
+      grid-column: 1 / -1;
+    }
+
+    /* No celular nao ha largura para duas fotos lado a lado: o grupo vira
+       uma coluna so e cada foto recebe a mesma moldura das demais do
+       stream, uma embaixo da outra. */
+    @media (max-width: 768px) {
+      .photo-stream-item.photo-stream-pair {
+        grid-template-columns: minmax(0, 1fr);
+        grid-auto-rows: 55vh;
+        height: auto;
+        gap: 0;
+      }
+    }
     .photo-stream-caption {
       position: absolute;
       bottom: 2.5rem;
@@ -1005,6 +1046,7 @@
       .collection-cover { min-height: 78svh; }
       @media (max-width: 768px) {
         .photo-stream-item { height: 55svh; }
+        .photo-stream-item.photo-stream-pair { height: auto; grid-auto-rows: 55svh; }
         .collection-cover { min-height: 65svh; }
       }
     }

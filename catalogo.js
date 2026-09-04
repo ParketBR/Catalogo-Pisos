@@ -22,13 +22,16 @@
               key: 'brazil', title: 'Brazil',
               desc: 'A autenticidade das madeiras brasileiras traduzida em réguas de beleza única. Uma coleção que exalta a alma tropical com cores profundas e fibras marcantes.',
               localFolder: 'pisos/brazil',
+              cover: 'pisos/brazil/capa.webp',
+              coverFocus: 'bottom',
               names: {
-                1: 'Canela', 2: 'Peroba Mica', 3: 'Cumaru', 4: 'Tauari',
-                5: 'Cumaru', 6: 'Cumaru', 7: 'Tauari', 8: 'Peroba do Campo',
-                9: 'Cabreúva Dourada', 10: 'Pau Mulato', 11: 'Tauari Naturalle',
-                12: 'Pau Mulato'
-                // 13 e 14 sem nome (arquivos "foto 1" e "foto 2")
+                1: 'Sucupira Negra', 2: 'Tauari Mont Blanc', 3: 'Peroba Mica',
+                4: 'Cumaru', 5: 'Tauari', 6: 'Cumaru', 7: 'Cumaru',
+                8: 'Peroba do Campo', 9: 'Tauari Smoked', 10: 'Pau Mulato',
+                11: 'Tauari Armani', 12: 'Pau Mulato'
               },
+              // Retratos que dividem a mesma moldura, lado a lado.
+              pairs: [[1, 2], [4, 5], [7, 8]],
               specs: [
                 { label: 'Espécies', value: 'Cumaru, Ipê, Tauari, Catuaba, Peroba do Campo, Sucupira Negra, Peroba Mica, Cabreúva Dourada e Pau Mulato.' },
                 { label: 'Origem', value: 'Brasil · manejo sustentável' },
@@ -41,9 +44,8 @@
               cover: 'pisos/eternos/04.webp',
               names: {
                 1: 'Canela Demolição', 2: 'Canela Demolição', 3: 'Canela Demolição',
-                4: 'Canela Demolição', 5: 'Canela Demolição', 6: 'Canela Demolição',
-                7: 'Canela Demolição', 8: 'Peroba Demolição', 9: 'Peroba Demolição',
-                10: 'Bambu Demolição'
+                4: 'Canela Demolição Clareada', 5: 'Canela Demolição', 6: 'Canela Demolição',
+                7: 'Peroba Demolição', 8: 'Peroba Demolição', 9: 'Bambu Demolição'
               },
               specs: [
                 { label: 'Espécies', value: 'Bambu, Canela, Peroba' },
@@ -65,6 +67,10 @@
             {
               key: 'carvalhos', title: 'Carvalhos',
               desc: 'A nobreza do Carvalho Europeu em texturas que contam histórias. Tons orgânicos e toques acetinados que trazem o equilíbrio perfeito entre tradição e modernidade.',
+              cover: 'https://parket.com.br/wp-content/uploads/2026/03/IMG_6862-1-scaled.jpg',
+              // As duas sao retrato e dividem a mesma moldura, lado a lado.
+              pairs: [[25, 26]],
+              coverFocus: '75%',
               specs: [
                 { label: 'Espécie', value: 'Carvalho Europeu (Quercus robur)' },
                 { label: 'Origem', value: 'Europa' },
@@ -75,32 +81,37 @@
                 { src: "https://parket.com.br/wp-content/uploads/2026/03/aa120b24-69d4-48d5-b47f-b73099b875ef-2-1.jpg", name: "Carvalho Europeu Naturalle" },
                 { src: "https://parket.com.br/wp-content/uploads/2026/03/european-oak-capuccino-1.jpeg", name: "Carvalho Europeu Marrone" },
                 { src: "https://parket.com.br/wp-content/uploads/2026/03/IMG_6862-1-scaled.jpg", name: "Carvalho Europeu<br>Mont Blanc" },
-                { src: "https://parket.com.br/wp-content/uploads/2026/03/IMG_8925-2-1.jpeg", name: "Carvalho Europeu Capuccino" },
                 { src: "https://parket.com.br/wp-content/uploads/2026/03/IMG_8932-2-1.jpeg", name: "Carvalho Europeu Capuccino" },
-                { src: "https://parket.com.br/wp-content/uploads/2026/03/oak-flooring-dinesen-victoria-miro-gallery-wide-wooden-floorboards-02-1.jpg", name: "Carvalho Europeu Naturalle" },
                 { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PI_CA-01.jpg", name: "Carvalho Europeu Milano" },
-                { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PI_CA-03.jpg" },
-                { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PI_CA-05.jpg", name: "Carvalho Europeu Nevado" },
+                { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PI_CA-03.jpg", name: "Carvalho Europeu Giz" },
                 { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PI_CA-06.jpg", name: "Carvalho Europeu Batman" },
-                { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PI_CA-07.jpg", name: "Carvalho Europeu Armani" },
-                { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PI_CA-08.jpg", name: "Carvalho Europeu Armani" },
-                { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PI_CA-09.jpg", name: "Carvalho Europeu Smoke" },
-                { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PI_CA-11.jpg", name: "Carvalho Europeu Giz" },
+                { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PI_CA-07.jpg", name: "Carvalho Europeu Nero Grigio" },
+                { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PI_CA-09.jpg", name: "Carvalho Europeu Smoked" },
+                { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PI_CA-11.jpg", name: "Carvalho Europeu Baby Gray" },
                 { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PI_CA-12.jpg", name: "Carvalho Europeu<br>Wild Grey" },
                 { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PI_CA-13.jpg", name: "Carvalho Europeu Armani" },
                 { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PI_CA-15.jpg", name: "Carvalho Europeu Naturalle" },
-                { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PI_CA-16.jpg", name: "Carvalho Europeu Smoke" },
                 { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PI_CA-18.jpg", name: "Carvalho Europeu Naturalle" },
-                { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PI_CA-20.jpg", name: "Carvalho Europeu Milano" },
-                { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PI_CA-21.jpg", name: "Carvalho Europeu Naturalle" },
                 { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PI_CA-22.jpg", name: "Carvalho Europeu Naturalle" },
                 { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PI_CA-24.jpg", name: "Carvalho Europeu Nevado" },
                 { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PI_CA-25.jpg", name: "Carvalho Europeu Batman" },
-                { src: "pisos/carvalhos/01.webp", name: "Carvalho Europeu Smoke" },
+                { src: "pisos/carvalhos/01.webp", name: "Carvalho Europeu Smoked" },
                 { src: "pisos/carvalhos/02.webp", name: "Carvalho Europeu Nude" },
-                { src: "pisos/carvalhos/03.webp", name: "Carvalho Europeu" },
+                { src: "pisos/carvalhos/03.webp", name: "Carvalho Europeu Armani" },
                 { src: "pisos/carvalhos/04.webp", name: "Carvalho Europeu" },
-                { src: "pisos/carvalhos/05.webp", name: "Carvalho Europeu" }
+                { src: "pisos/carvalhos/05.webp", name: "Carvalho Europeu" },
+                { src: "pisos/carvalhos/06.webp", name: "Carvalho Europeu" },
+                { src: "pisos/carvalhos/07.webp", name: "Carvalho Europeu" },
+                { src: "pisos/carvalhos/09.webp", name: "Carvalho Europeu" },
+                { src: "pisos/carvalhos/08.webp", name: "Carvalho Europeu" },
+                { src: "pisos/carvalhos/10.webp", name: "Carvalho Europeu" },
+                { src: "pisos/carvalhos/11.webp", name: "Carvalho Europeu" },
+                { src: "pisos/carvalhos/12.webp", name: "Carvalho Europeu" },
+                { src: "pisos/carvalhos/13.webp", name: "Carvalho Europeu" },
+                { src: "pisos/carvalhos/14.webp", name: "Carvalho Europeu" },
+                { src: "pisos/carvalhos/15.webp", name: "Carvalho Europeu" },
+                { src: "pisos/carvalhos/16.webp", name: "Carvalho Europeu Baby Gray" },
+                { src: "pisos/carvalhos/17.webp", name: "Carvalho Europeu" }
               ]
             },
             {
@@ -120,7 +131,9 @@
                 { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PI_GR-11.jpg", name: "Pinho de Riga Mont Blanc" },
                 { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PI_GR-12.jpg", name: "Carvalho Europeu Naturalle" },
                 { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PI_GR-13.jpg", name: "Carvalho Europeu<br>Mont Blanc" },
-                { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PI_GR-03.jpg", name: "Pinho de Riga Mont Blanc" }
+                { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PI_GR-03.jpg", name: "Pinho de Riga Mont Blanc" },
+                { src: "pisos/grandiosos/01.webp", name: "Carvalho Europeu Naturalle" },
+                { src: "pisos/grandiosos/02.webp", name: "Carvalho Europeu" }
               ]
             },
             {
@@ -421,8 +434,8 @@
       });
 
       const KNOWN_LOCAL = {
-        'pisos/brazil': [2,4,5,6,8,12,13,14,15,16,7,17,18,19].map(n => `pisos/brazil/${String(n).padStart(2,'0')}.webp`),
-        'pisos/eternos': [2,4,6,7,8,9,10,11,12,1].map(n => `pisos/eternos/${String(n).padStart(2,'0')}.webp`),
+        'pisos/brazil': [20,7,4,8,6,5,12,14,15,17,19,18].map(n => `pisos/brazil/${String(n).padStart(2,'0')}.webp`),
+        'pisos/eternos': [2,4,6,7,9,10,11,12,1].map(n => `pisos/eternos/${String(n).padStart(2,'0')}.webp`),
         'pisos/unicos': [1,2,3,4,5].map(n => `pisos/unicos/${String(n).padStart(2,'0')}.webp`)
       };
 
@@ -444,6 +457,32 @@
       }
 
       const getImg = (item) => typeof item === 'string' ? { src: item } : item;
+
+      // Fotos em retrato ficam pequenas quando cada uma ocupa sozinha uma
+      // moldura de 100vh (sobra fundo dos dois lados). `pairs: [[4,5,6]]`
+      // junta as posicoes 4, 5 e 6 num quadro so, lado a lado, no mesmo
+      // padrao full-bleed das demais fotos do stream. O grupo aceita 2 ou 3.
+      function applyPairs(list, pairs) {
+        if (!pairs || !pairs.length) return list;
+        const taken = new Set();
+        pairs.forEach(group => group.forEach(pos => taken.add(pos)));
+        const out = [];
+        list.forEach((img, i) => {
+          const pos = i + 1;
+          const group = pairs.find(g => g[0] === pos);
+          if (group) {
+            const fotos = group.map(n => list[n - 1]).filter(Boolean);
+            if (fotos.length === group.length) {
+              // Nomes distintos das fotos do grupo, na ordem, sem repetir
+              const nomes = [...new Set(fotos.map(f => f.name).filter(Boolean))];
+              out.push({ pair: fotos, name: nomes.join(' \u00b7 ') });
+              return;
+            }
+          }
+          if (!taken.has(pos)) out.push(img);
+        });
+        return out;
+      }
 
       // Proxy remote parket.com.br images through images.weserv.nl for
       // automatic WebP conversion + on-the-fly resize. Local URLs pass-through.
@@ -495,6 +534,22 @@
           if (img.fit === 'contain') item.classList.add('photo-fit-contain');
           if (idPrefix) item.id = `foto-${idPrefix}-${i}`;
           const label = caption ? `<span class="photo-num-inline">${num}</span> ${caption}` : `<span class="photo-num-inline">${num}</span>`;
+          // Par lado a lado: duas fotos dividindo a mesma moldura, cada uma
+          // preenchendo metade da tela em "cover". Sai antes das linhas que
+          // leem img.src — uma entrada de par nao tem src proprio.
+          if (img.pair) {
+            const loading = i === 0 ? 'eager' : 'lazy';
+            item.classList.add('photo-stream-pair');
+            if (img.pair.length > 2) item.classList.add(`photo-stream-pair--${Math.min(img.pair.length, 4)}`);
+            item.innerHTML = `
+            ${img.pair.map(ph => `<img decoding="async" loading="${loading}" src="${proxify(ph.src, 1600)}" alt="${caption || title}">`).join('\n            ')}
+            <figcaption class="photo-stream-caption">${label}</figcaption>
+          `;
+            container.appendChild(item);
+            inViewIo.observe(item);
+            return;
+          }
+
           const styleParts = [];
           if (img.focus) styleParts.push(`object-position: center ${img.focus}`);
           if (img.fit) styleParts.push(`object-fit: ${img.fit}`);
@@ -770,14 +825,21 @@
           let imgs = col.images;
           if (!imgs && col.localFolder) {
             const local = await findLocalImages(col.localFolder);
-            imgs = local.map((src, i) => ({ src, name: (col.names || {})[i + 1], fit: (col.fits || {})[i + 1] }));
+            imgs = applyPairs(local.map((src, i) => ({ src, name: (col.names || {})[i + 1], fit: (col.fits || {})[i + 1] })), col.pairs);
           }
           if (!imgs || !imgs.length) {
             stream.remove();
             return;
           }
           const bg = cover.querySelector('.collection-cover-bg');
-          if (bg && !bg.style.backgroundImage) bg.style.backgroundImage = `url('${proxify(col.cover || getImg(imgs[0]).src, 1600)}')`;
+          if (bg && !bg.style.backgroundImage) {
+            const first = getImg(imgs[0]);
+            const firstSrc = first.pair ? first.pair[0].src : first.src;
+            bg.style.backgroundImage = `url('${proxify(col.cover || firstSrc, 1600)}')`;
+            // `coverFocus` puxa o enquadramento da capa (padrao: center), do
+            // mesmo jeito que `focus` faz nas fotos do stream.
+            if (col.coverFocus) bg.style.backgroundPosition = `center ${col.coverFocus}`;
+          }
           buildPhotoStream(stream, imgs, col.title);
         })();
 
@@ -925,6 +987,12 @@
           if (!col.images && col.localFolder) {
             const local = await findLocalImages(col.localFolder);
             col.images = local.map((src, i) => ({ src, name: (col.names || {})[i + 1], fit: (col.fits || {})[i + 1] }));
+          }
+          // Os pares valem para os dois casos: pasta local e lista declarada.
+          // A marca evita reaplicar sobre uma lista ja pareada.
+          if (col.images && !col._paired) {
+            col.images = applyPairs(col.images.map(getImg), col.pairs);
+            col._paired = true;
           }
         })
       ));
