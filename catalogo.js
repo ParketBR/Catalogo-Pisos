@@ -25,7 +25,6 @@
             // Levantados no canal (@Parketoficial/shorts). Titulo exatamente
             // como esta no YouTube, sem edicao.
             { type: 'youtube', id: 'A7NbU_SkT2c', vertical: true, title: 'Carvalho Europeu: o Apartamento \u00c1urea Pinheiros | Parket' },
-            { type: 'youtube', id: '6RwBfrJDCS8', vertical: true, title: 'Parket - \u00c1urea Pinheiros em Carvalho Europeu' },
             { type: 'youtube', id: 'BvN5piC43lQ', vertical: true, title: 'Cole\u00e7\u00e3o Brazil: Pisos de madeiras tropicais brasileiras selecionadas pela Parket.' },
             { type: 'youtube', id: 'yuTSH3Tfv3E', vertical: true, title: 'Piso de nogueira JUMBO, o piso de madeira mais disputado do mundo. #woodworking #wood' },
             { type: 'youtube', id: 'QI_Uuw1J7vc', vertical: true, title: 'ENTREGA DO MAIOR PISO DE MADEIRA DO MUNDO NO ITAIM BIBI S\u00c3O PAULO - PARKET' },
