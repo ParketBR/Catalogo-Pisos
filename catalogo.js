@@ -16,6 +16,9 @@
             { type: 'youtube', id: 'fHEBXGLVck4', vertical: true, title: 'A presença absoluta do material' },
             { type: 'youtube', id: 'i4gXTyMsTZo', vertical: true, title: 'Coleção Brazil: o espectro tonal da madeira brasileira' },
             { type: 'youtube', id: 'j6ptdgucfRs', vertical: true, title: 'Brazil' },
+            // Locais: arquivo proprio em vez de embed do YouTube.
+            { src: 'videos/carvalho-boiserie.mp4', poster: 'videos/carvalho-boiserie.webp', vertical: true, title: 'Carvalho Europeu: piso e parede' },
+            { src: 'videos/carvalho-corredor.mp4', poster: 'videos/carvalho-corredor.webp', vertical: true, title: 'Carvalho Europeu em casa habitada' },
            ],
           collections: [
             {
