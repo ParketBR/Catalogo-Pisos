@@ -22,7 +22,6 @@
             { type: 'youtube', id: '6AU-gNo13zc', vertical: true, title: 'Pagina\u00e7\u00e3o Chevron em Carvalho Europeu Natural' },
             { type: 'youtube', id: 'aWqu-yIJ1H4', vertical: true, title: 'Resid\u00eancia em piso Chevron Carvalho Europeu tom escuro' },
             { type: 'youtube', id: 'EBua9XEj78g', vertical: true, title: 'Cliente Parket voltou para uma nova obra' },
-            { type: 'youtube', id: '9W65gsFseU4', vertical: true, title: 'R\u00e9gua de 11 metros de comprimento, fabricada pela Parket. Sem emenda' },
             // Levantados no canal (@Parketoficial/shorts). Titulo exatamente
             // como esta no YouTube, sem edicao.
             { type: 'youtube', id: 'A7NbU_SkT2c', vertical: true, title: 'Carvalho Europeu: o Apartamento \u00c1urea Pinheiros | Parket' },
