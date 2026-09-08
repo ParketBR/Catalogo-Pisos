@@ -23,8 +23,23 @@
             { type: 'youtube', id: 'aWqu-yIJ1H4', vertical: true, title: 'Resid\u00eancia em piso Chevron Carvalho Europeu tom escuro' },
             { type: 'youtube', id: 'EBua9XEj78g', vertical: true, title: 'Cliente Parket voltou para uma nova obra' },
             { type: 'youtube', id: '9W65gsFseU4', vertical: true, title: 'R\u00e9gua de 11 metros de comprimento, fabricada pela Parket. Sem emenda' },
+            // Levantados no canal (@Parketoficial/shorts). Titulo exatamente
+            // como esta no YouTube, sem edicao.
+            { type: 'youtube', id: 'A7NbU_SkT2c', vertical: true, title: 'Carvalho Europeu: o Apartamento \u00c1urea Pinheiros | Parket' },
+            { type: 'youtube', id: '6RwBfrJDCS8', vertical: true, title: 'Parket - \u00c1urea Pinheiros em Carvalho Europeu' },
+            { type: 'youtube', id: 'BvN5piC43lQ', vertical: true, title: 'Cole\u00e7\u00e3o Brazil: Pisos de madeiras tropicais brasileiras selecionadas pela Parket.' },
+            { type: 'youtube', id: 'yuTSH3Tfv3E', vertical: true, title: 'Piso de nogueira JUMBO, o piso de madeira mais disputado do mundo. #woodworking #wood' },
+            { type: 'youtube', id: 'QI_Uuw1J7vc', vertical: true, title: 'ENTREGA DO MAIOR PISO DE MADEIRA DO MUNDO NO ITAIM BIBI S\u00c3O PAULO - PARKET' },
+            { type: 'youtube', id: 'wOgmNkRdmWA', vertical: true, title: '17mil m2 de Piso de Sucupira negra no Fasano' },
+            { type: 'youtube', id: 'LXs-lcThdFo', vertical: true, title: 'O MAIOR PISO DE MADEIRA DO MUNDO! PARKET #wood #woodworking' },
+            { type: 'youtube', id: 'cOUoR84F4TA', vertical: true, title: 'Instala\u00e7\u00e3o de versailles de Sucupira Negra nesse projeto maravilhoso da talentos\u00edssima Laura Rocha' },
+            { type: 'youtube', id: 'mqFf5_2zNnc', vertical: true, title: 'Instala\u00e7\u00e3o de piso de madeira Carvalho Europeu Smoke - Parket' },
+            { type: 'youtube', id: 'XMNQKGwjk-w', vertical: true, title: 'A beleza do piso de carvalho europeu da Alemanh\u00e3, no apartamento do arquiteto Sig Bergamin - Parket' },
+            { type: 'youtube', id: 'YiFQHvEWi44', vertical: true, title: 'Piso de Carvalho Europeu de 30cm de Largura x 4m de comprimento' },
+            { type: 'youtube', id: 'qSaU0e3MhVg', vertical: true, title: 'Piso de madeira Carvalho Europeu pagina\u00e7\u00e3o Chevron' },
+            { type: 'youtube', id: 'sZwk3qMJKkg', vertical: true, title: 'Piso de Carvalho Europeu pagina\u00e7\u00e3o Chevron da Parket' },
+            { type: 'youtube', id: 'bRIoqEnthfY', vertical: true, title: 'Como vem embalado os pisos de madeira da Parket ?' },
             // Locais: arquivo proprio em vez de embed do YouTube.
-            { src: 'videos/carvalho-boiserie.mp4', poster: 'videos/carvalho-boiserie.webp', vertical: true, title: 'Carvalho Europeu: piso e parede' },
             { src: 'videos/carvalho-corredor.mp4', poster: 'videos/carvalho-corredor.webp', vertical: true, title: 'Carvalho Europeu em casa habitada' },
            ],
           collections: [
