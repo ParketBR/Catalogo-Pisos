@@ -15,7 +15,7 @@
           videos: [
             { type: 'youtube', id: 'fHEBXGLVck4', vertical: true, title: 'A presença absoluta do material' },
             { type: 'youtube', id: 'i4gXTyMsTZo', vertical: true, title: 'Coleção Brazil: o espectro tonal da madeira brasileira' },
-            { type: 'youtube', id: 'j6ptdgucfRs', vertical: true, title: 'Brazil' },
+            { type: 'youtube', id: 'j6ptdgucfRs', vertical: true, title: 'Piso natural Carvalho Europeu' },
             // Locais: arquivo proprio em vez de embed do YouTube.
             { src: 'videos/carvalho-boiserie.mp4', poster: 'videos/carvalho-boiserie.webp', vertical: true, title: 'Carvalho Europeu: piso e parede' },
             { src: 'videos/carvalho-corredor.mp4', poster: 'videos/carvalho-corredor.webp', vertical: true, title: 'Carvalho Europeu em casa habitada' },
@@ -113,8 +113,7 @@
                 { src: "pisos/carvalhos/13.webp", name: "Carvalho Europeu" },
                 { src: "pisos/carvalhos/14.webp", name: "Carvalho Europeu" },
                 { src: "pisos/carvalhos/15.webp", name: "Carvalho Europeu" },
-                { src: "pisos/carvalhos/16.webp", name: "Carvalho Europeu Baby Gray" },
-                { src: "pisos/carvalhos/17.webp", name: "Carvalho Europeu" }
+                { src: "pisos/carvalhos/16.webp", name: "Carvalho Europeu Baby Gray" }
               ]
             },
             {
@@ -544,10 +543,21 @@
             const loading = i === 0 ? 'eager' : 'lazy';
             item.classList.add('photo-stream-pair');
             if (img.pair.length > 2) item.classList.add(`photo-stream-pair--${Math.min(img.pair.length, 4)}`);
-            item.innerHTML = `
-            ${img.pair.map(ph => `<img decoding="async" loading="${loading}" src="${proxify(ph.src, 1600)}" alt="${caption || title}">`).join('\n            ')}
-            <figcaption class="photo-stream-caption">${label}</figcaption>
-          `;
+            // Cada foto do grupo e uma celula com legenda propria, para o nome
+            // da madeira ficar sobre a foto a que ele pertence. O numero do
+            // quadro sai so na primeira: o grupo ocupa uma posicao no stream.
+            item.innerHTML = img.pair.map((ph, n) => {
+              const nome = ph.name || '';
+              const numero = n === 0 ? `<span class="photo-num-inline">${num}</span> ` : '';
+              const legenda = (numero || nome)
+                ? `<figcaption class="photo-stream-caption">${numero}${nome}</figcaption>`
+                : '';
+              return `
+            <div class="photo-pair-cell">
+              <img decoding="async" loading="${loading}" src="${proxify(ph.src, 1600)}" alt="${nome || title}">
+              ${legenda}
+            </div>`;
+            }).join('');
             container.appendChild(item);
             inViewIo.observe(item);
             return;
