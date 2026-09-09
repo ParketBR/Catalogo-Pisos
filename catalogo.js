@@ -15,10 +15,10 @@
           videos: [
             { type: 'youtube', id: 'fHEBXGLVck4', vertical: true, title: 'A presença absoluta do material' },
             { type: 'youtube', id: 'i4gXTyMsTZo', vertical: true, title: 'Coleção Brazil: o espectro tonal da madeira brasileira' },
-            { type: 'youtube', id: 'j6ptdgucfRs', vertical: true, title: 'Piso natural Carvalho Europeu' },
+            { type: 'youtube', id: 'j6ptdgucfRs', vertical: true, title: 'Piso espinha de peixe Tauari' },
             // Recuperados do catalogo antigo (paint-000000.github.io). Titulo
             // conforme o proprio YouTube, sem o ponto final.
-            { type: 'youtube', id: '9HUVFWeCxsQ', vertical: true, title: 'Carvalho Europeu em espinha de peixe \u00b7 Projeto Loja Carol Bassi' },
+            { type: 'youtube', id: '9HUVFWeCxsQ', vertical: true, title: 'Piso Versailles \u00b7 Projeto Loja Carol Bassi' },
             { type: 'youtube', id: '6AU-gNo13zc', vertical: true, title: 'Pagina\u00e7\u00e3o Chevron em Carvalho Europeu Natural' },
             { type: 'youtube', id: 'aWqu-yIJ1H4', vertical: true, title: 'Resid\u00eancia em piso Chevron Carvalho Europeu tom escuro' },
             { type: 'youtube', id: 'EBua9XEj78g', vertical: true, title: 'Cliente Parket voltou para uma nova obra' },
